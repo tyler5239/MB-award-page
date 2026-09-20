@@ -159,7 +159,7 @@
 
     <div class="card">
 
-        <form>
+        <form id="nominationForm">
 
             <label for="faculty">
                 Faculty Member
@@ -223,6 +223,36 @@
     </div>
 
 </main>
+
+
+<!-- SUPABASE -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+
+    /*
+    =====================================================
+    CHANGE THESE TWO LINES
+    =====================================================
+    */
+
+    const SUPABASE_URL = "https://gciojmdxkxunmilckztc.supabase.co/rest/v1/";
+
+    const SUPABASE_KEY = "sb_publishable_Re9GRctyRXIYZO9oxOGCjw_fhbL90ZP";
+
+
+    /*
+    =====================================================
+    DO NOT CHANGE ANYTHING BELOW THIS LINE
+    =====================================================
+    */
+
+    const supabaseClient = supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+</script>
 
 </body>
 </html>
