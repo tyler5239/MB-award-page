@@ -236,7 +236,7 @@
     =====================================================
     */
 
-    const SUPABASE_URL = "https://gciojmdxkxunmilckztc.supabase.co/rest/v1/";
+    const SUPABASE_URL = "https://gciojmdxkxunmilckztc.supabase.co";
 
     const SUPABASE_KEY = "sb_publishable_Re9GRctyRXIYZO9oxOGCjw_fhbL90ZP";
 
@@ -252,6 +252,68 @@
         SUPABASE_KEY
     );
 
+    const form = document.getElementById("nominationForm");
+
+form.addEventListener("submit", async function(event) {
+
+    event.preventDefault();
+
+    const facultyName =
+        document.getElementById("faculty").value.trim();
+
+    const department =
+        document.getElementById("department").value.trim();
+
+    const reason =
+        document.getElementById("reason").value.trim();
+
+    const voterEmail =
+        document.getElementById("email").value.trim().toLowerCase();
+
+
+    // Make sure the voter is using a K-State email
+    if (!voterEmail.endsWith("@ksu.edu")) {
+
+        alert("Please use your K-State email address.");
+
+        return;
+    }
+
+
+    // Send nomination to Supabase
+    const { error } = await supabaseClient
+        .from("nominations")
+        .insert([
+            {
+                faculty_name: facultyName,
+                department: department || null,
+                reason: reason,
+                voter_email: voterEmail
+            }
+        ]);
+
+
+    // If something went wrong
+    if (error) {
+
+        console.error("Supabase error:", error);
+
+        alert(
+            "Something went wrong while submitting your nomination."
+        );
+
+        return;
+    }
+
+
+    // Successful submission
+    alert(
+        "Thank you! Your nomination has been submitted."
+    );
+
+    form.reset();
+
+});
 </script>
 
 </body>
