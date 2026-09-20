@@ -4,16 +4,225 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Faculty Excellence Award</title>
+    <title>Mortar Board Faculty Excellence Award</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            background: #ffffff;
+            color: #333333;
+        }
+
+        .header {
+            border-top: 7px solid #512888;
+            padding: 45px 20px 30px;
+            text-align: center;
+        }
+
+        .organization {
+            color: #512888;
+            font-weight: bold;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        h1 {
+            margin: 12px 0 10px;
+            font-size: 38px;
+            color: #222222;
+        }
+
+        .subtitle {
+            color: #666666;
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 25px auto 60px;
+            padding: 0 20px;
+        }
+
+        .card {
+            background: #f5f5f5;
+            border: 1px solid #dddddd;
+            border-radius: 10px;
+            padding: 32px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333333;
+        }
+
+        .optional {
+            font-weight: normal;
+            color: #777777;
+        }
+
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 24px;
+            border: 1px solid #cccccc;
+            border-radius: 6px;
+            background: #ffffff;
+            font-size: 16px;
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #512888;
+            box-shadow: 0 0 0 2px rgba(81, 40, 136, 0.12);
+        }
+
+        textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 6px;
+            background: #555555;
+            color: white;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #512888;
+        }
+
+        .privacy {
+            margin-top: 18px;
+            text-align: center;
+            color: #777777;
+            font-size: 13px;
+            line-height: 1.5;
+        }
+
+        .accent {
+            width: 55px;
+            height: 4px;
+            background: #512888;
+            margin: 22px auto;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 30px;
+            }
+
+            .card {
+                padding: 22px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <h1>Mortar Board Faculty Excellence Award</h1>
+<header class="header">
 
-    <p>
+    <div class="organization">
+        Mortar Board
+    </div>
+
+    <h1>Faculty Excellence Award</h1>
+
+    <div class="accent"></div>
+
+    <p class="subtitle">
         Recognize a faculty member who has made a difference.
     </p>
+
+</header>
+
+
+<main class="container">
+
+    <div class="card">
+
+        <form>
+
+            <label for="faculty">
+                Faculty Member
+            </label>
+
+            <input
+                type="text"
+                id="faculty"
+                placeholder="Faculty member's name"
+                required
+            >
+
+
+            <label for="department">
+                Department
+                <span class="optional">(optional)</span>
+            </label>
+
+            <input
+                type="text"
+                id="department"
+                placeholder="Department"
+            >
+
+
+            <label for="reason">
+                Why does this faculty member deserve recognition?
+            </label>
+
+            <textarea
+                id="reason"
+                placeholder="Tell us how this faculty member has made an impact..."
+                required
+            ></textarea>
+
+
+            <label for="email">
+                Your K-State Email
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="you@ksu.edu"
+                required
+            >
+
+
+            <button type="submit">
+                Submit Nomination
+            </button>
+
+        </form>
+
+
+        <p class="privacy">
+            Your university email is used to help prevent duplicate
+            nominations and maintain the integrity of the award process.
+        </p>
+
+    </div>
+
+</main>
 
 </body>
 </html>
